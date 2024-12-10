@@ -3,6 +3,9 @@ import sys
 import numpy as np
 h('objref nil')
 
+modpath = 'density_mechs'
+h.nrn_load_dll(modpath + '\\nrnmech.dll')
+
 def init_activeCA1(model):
     model.soma.insert('nax'); model.soma.gbar_nax = model.gna_soma
     model.soma.insert('kdr'); model.soma.gkdrbar_kdr = model.gkdr_soma
