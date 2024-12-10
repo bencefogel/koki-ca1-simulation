@@ -1,7 +1,6 @@
 import numpy as np
 
 import simulation
-import simulation_currents  # simulation
 from numpy import loadtxt
 from neuron import h
 
@@ -21,7 +20,7 @@ def sim_PlaceInput(model, Insyn, Irate, e_fname, i_fname, elimIspike=0, sim_time
     data.etimes = etimes
 
     # Run
-    fih = simulation_currents.h.FInitializeHandler(1, initSpikes)
+    fih = simulation.h.FInitializeHandler(1, initSpikes)
     simulation.simulate(model, t_stop=sim_time)
 
 
