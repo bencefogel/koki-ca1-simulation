@@ -21,7 +21,7 @@ def sim_PlaceInput(model, Insyn, Irate, e_fname, i_fname, elimIspike=0, sim_time
 
     # Run
     fih = simulation.h.FInitializeHandler(1, initSpikes)
-    simulation.simulate(model, t_stop=sim_time)
+    simulation.simulate(model, tstop=sim_time)
 
 
 def initSpikes():
