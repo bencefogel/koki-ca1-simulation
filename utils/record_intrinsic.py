@@ -5,15 +5,15 @@ from neuron import h
 
 
 current_types = {
-        "nax": "_ref_ina_nax",
-        "nad": "_ref_ina_nad",
-        "car": "_ref_ica_car",
-        "kdr": "_ref_ik_kdr",
-        "kap": "_ref_ik_kap",
-        "kad": "_ref_ik_kad",
-        "kslow": "_ref_ik_kslow",
-        "passive": "_ref_i_pas",
-        "capacitive": "_ref_i_cap",
+        'nax': '_ref_ina_nax',
+        'nad': '_ref_ina_nad',
+        'car': '_ref_ica_car',
+        'kdr': '_ref_ik_kdr',
+        'kap': '_ref_ik_kap',
+        'kad': '_ref_ik_kad',
+        'kslow': '_ref_ik_kslow',
+        'passive': '_ref_i_pas',
+        'capacitive': '_ref_i_cap',
     }
 
 
@@ -27,7 +27,7 @@ def measure_intrinsic(seg, current_types):
     return recorded_vectors
 
 
-def record_intrinsic():
+def record_intrinsic_currents():
     intrinsic_currents = {current: [] for current in current_types}
     intrinsic_segments = {current: [] for current in current_types}
 
@@ -41,7 +41,7 @@ def record_intrinsic():
     return intrinsic_segments, intrinsic_currents
 
 
-def save_intrinsic(intrinsic_segments, intrinsic_currents, output_dir):
+def save_intrinsic_data(intrinsic_segments, intrinsic_currents, output_dir):
     # Create output directory if it doesn't exist
     os.makedirs(output_dir, exist_ok=True)
 

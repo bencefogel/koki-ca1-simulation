@@ -42,4 +42,4 @@ for syn_id in ind_clust:
 e_fname = 'synaptic_input/Espikes_d10_Ne2000_Re0.5_rseed1_rep0.dat'
 i_fname = 'synaptic_input/Ispikes_d10_Ni200_Ri7.4_rseed1_rep0.dat'
 sim_PlaceInput(model, Insyn=200, Irate=7.4, e_fname=e_fname, i_fname=i_fname,
-               elimIspike=False, sim_time=0.0001 * 1000)
+               elimIspike=False, sim_time=0.01 * 1000)

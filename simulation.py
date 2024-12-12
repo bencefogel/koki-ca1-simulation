@@ -4,7 +4,8 @@ import neuron
 import numpy as np
 import time
 
-from utils.record_intrinsic import measure_intrinsic, record_intrinsic, save_intrinsic
+from utils.record_intrinsic import record_intrinsic_currents, save_intrinsic_data
+from utils.record_synaptic import record_synaptic_currents, save_synaptic_data
 
 
 def simulate(model, tstop=100):
@@ -15,13 +16,12 @@ def simulate(model, tstop=100):
     trec = h.Vector()
     trec.record(h._ref_t)
 
-    allsec = h.allsec()
-
-    intrinsic_segments, intrinsic_currents = record_intrinsic()
+    intrinsic_segments, intrinsic_currents = record_intrinsic_currents()
+    synaptic_segments, synaptic_currents = record_synaptic_currents(model)
 
     h.celsius = 35
     h.finitialize(-68.3)
 
-    neuron.run(tstop)
+    save_intrinsic_data(intrinsic_segments, intrinsic_currents, 'L:/test')
+    save_synaptic_data(synaptic_segments, synaptic_currents, 'L:/test')
 
-    save_intrinsic(intrinsic_segments, intrinsic_currents, 'L:/test')
