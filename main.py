@@ -1,3 +1,5 @@
+import time
+
 import numpy as np
 import pandas as pd
 from ca1_model import CA1
@@ -17,7 +19,9 @@ model = CA1()
 init_activeCA1(model)
 
 # GENERATE EXCITATORY synapse locations
-Elocs, ind_clust, clDends = addClustLocs(model, nsyn=2000, Nclust=12, Ncell_per_clust=20, seed=26, midle=True, clocs=[8, 13, 36, 59], Lmin=60)
+clocs_all = np.load('clocs.npy')
+clocs = clocs_all[0,:]
+Elocs, ind_clust, clDends = addClustLocs(model, nsyn=2000, Nclust=12, Ncell_per_clust=20, seed=26, midle=True, clocs=clocs, Lmin=60)
 #  original data: clocs=[8, 13, 36, 59], seed 26
 
 # GENERATE INHIBITORY synapse locations
@@ -39,7 +43,10 @@ for syn_id in ind_clust:
     model.ncNMDAlist[syn_id].weight[0] = 0.0012  # 1.2/1000 Set in nS and convert to muS
 
 # # RUN simualtion
+start = time.perf_counter()
 e_fname = 'synaptic_input/Espikes_d10_Ne2000_Re0.5_rseed1_rep0.dat'
 i_fname = 'synaptic_input/Ispikes_d10_Ni200_Ri7.4_rseed1_rep0.dat'
-sim_PlaceInput(model, Insyn=200, Irate=7.4, e_fname=e_fname, i_fname=i_fname,
-               elimIspike=False, sim_time=0.01 * 1000)
+sim_PlaceInput(model, Insyn=200, Irate=7.4, e_fname=e_fname, i_fname=i_fname, tstop=10 * 1000, elimIspike=False)
+end = time.perf_counter()
+
+print(f'Simulation time: {np.round(end-start,2)} seconds')
