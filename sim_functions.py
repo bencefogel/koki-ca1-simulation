@@ -4,7 +4,7 @@ import simulation
 from numpy import loadtxt
 from neuron import h
 
-def sim_PlaceInput(model, Insyn, Irate, e_fname, i_fname, tstop, elimIspike=0): #sim_time in msec
+def sim_PlaceInput(model, Insyn, Irate, e_fname, i_fname, tstop, out_dir, elimIspike=0): #sim_time in msec
     eitimes = readTrain(e_fname, i_fname)
 
     if ((Insyn > 0) & (Irate > 0)) :
@@ -21,7 +21,7 @@ def sim_PlaceInput(model, Insyn, Irate, e_fname, i_fname, tstop, elimIspike=0): 
 
     # Run
     fih = simulation.h.FInitializeHandler(1, initSpikes)
-    simulation.simulate(model, tstop)
+    simulation.simulate(model, tstop, out_dir)
 
 
 def initSpikes():
