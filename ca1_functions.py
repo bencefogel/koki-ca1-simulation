@@ -9,70 +9,70 @@ h.nrn_load_dll(modpath + '\\nrnmech.dll')
 
 
 def init_activeCA1(model):
-    model.soma.insert('nax');
+    model.soma.insert('nax')
     model.soma.gbar_nax = model.gna_soma
-    model.soma.insert('kdr');
+    model.soma.insert('kdr')
     model.soma.gkdrbar_kdr = model.gkdr_soma
-    model.soma.insert('kap');
+    model.soma.insert('kap')
     model.soma.gkabar_kap = model.gka
 
-    model.hill.insert('nax');
+    model.hill.insert('nax')
     model.hill.gbar_nax = model.gna_axon
-    model.hill.insert('kdr');
+    model.hill.insert('kdr')
     model.hill.gkdrbar_kdr = model.gkdr_axon
-    model.soma.insert('kap');
+    model.soma.insert('kap')
     model.soma.gkabar_kap = model.gka
 
-    model.iseg.insert('nax');
+    model.iseg.insert('nax')
     model.iseg.gbar_nax = model.gna_axon
-    model.iseg.insert('kdr');
+    model.iseg.insert('kdr')
     model.iseg.gkdrbar_kdr = model.gkdr_axon
-    model.iseg.insert('kap');
+    model.iseg.insert('kap')
     model.soma.gkabar_kap = model.gka
 
-    model.node[0].insert('nax');
+    model.node[0].insert('nax')
     model.node[0].gbar_nax = model.gna_node
-    model.node[0].insert('kdr');
+    model.node[0].insert('kdr')
     model.node[0].gkdrbar_kdr = model.gkdr_axon
-    model.node[0].insert('kap');
+    model.node[0].insert('kap')
     model.node[0].gkabar_kap = model.gka * 0.2
 
-    model.node[1].insert('nax');
+    model.node[1].insert('nax')
     model.node[1].gbar_nax = model.gna_node
-    model.node[1].insert('kdr');
+    model.node[1].insert('kdr')
     model.node[1].gkdrbar_kdr = model.gkdr_axon
-    model.node[1].insert('kap');
+    model.node[1].insert('kap')
     model.node[1].gkabar_kap = model.gka * 0.2
 
-    model.inode[0].insert('nax');
+    model.inode[0].insert('nax')
     model.inode[0].gbar_nax = model.gna_axon
-    model.inode[0].insert('kdr');
+    model.inode[0].insert('kdr')
     model.inode[0].gkdrbar_kdr = model.gkdr_axon
-    model.inode[0].insert('kap');
+    model.inode[0].insert('kap')
     model.inode[0].gkabar_kap = model.gka * 0.2
 
-    model.inode[1].insert('nax');
+    model.inode[1].insert('nax')
     model.inode[1].gbar_nax = model.gna_axon
-    model.inode[1].insert('kdr');
+    model.inode[1].insert('kdr')
     model.inode[1].gkdrbar_kdr = model.gkdr_axon
-    model.inode[1].insert('kap');
+    model.inode[1].insert('kap')
     model.inode[1].gkabar_kap = model.gka * 0.2
 
-    model.inode[2].insert('nax');
+    model.inode[2].insert('nax')
     model.inode[2].gbar_nax = model.gna_axon
-    model.inode[2].insert('kdr');
+    model.inode[2].insert('kdr')
     model.inode[2].gkdrbar_kdr = model.gkdr_axon
-    model.inode[2].insert('kap');
+    model.inode[2].insert('kap')
     model.inode[2].gkabar_kap = model.gka * 0.2
 
     for d in model.dends:
-        d.insert('nad');
+        d.insert('nad')
         d.gbar_nad = model.gna
-        d.insert('kdr');
+        d.insert('kdr')
         d.gkdrbar_kdr = model.gkdr
-        d.insert('kap');
+        d.insert('kap')
         d.gkabar_kap = 0
-        d.insert('kad');
+        d.insert('kad')
         d.gkabar_kad = 0
 
     h('access soma')
@@ -132,9 +132,9 @@ def init_activeCA1(model):
 
     # Adding Ca and K_slow conductances
     for sec in h.all_apicals:
-        sec.insert('car');
+        sec.insert('car')
         sec.gmax_car = 0.006  # 0.007
-        sec.insert('kslow');
+        sec.insert('kslow')
         sec.gmax_kslow = 0.001  # 0.003
 
 
